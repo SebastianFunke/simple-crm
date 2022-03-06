@@ -1,4 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-drawer-container {
+    height: 100vh;
+}
+
+.menu-icon {
+    cursor: pointer;
+}
+
+.sidenav {
+    width: 300px;
+}
+
+.logo-container {
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.05);
+    padding: 0 16px;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+}
+
+mat-toolbar,
+mat-toolbar-row {
+    min-height: 56px !important;
+    height: 56px !important;
+}
+
+.sidenav-elements {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li {
+        padding-left: 16px;
+        padding-right: 16px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        &:focus {
+            outline: none;
+        }
+        mat-icon {
+            margin-right: 16px;
+        }
+    }
+}
+
+.router-container {
+    padding-left: 56px;
+    padding-top: 16px;
+}
+
+.mr-16 {
+    margin-right: 16px;
+}
+
+.full-width {
+    width: 100%;
+}
