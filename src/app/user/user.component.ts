@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { User } from 'src/models/user.class';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 
 @Component({
@@ -8,16 +9,18 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  animal!: string;
-  name!: string;
 
-  constructor(public dialog: MatDialog) { }
+  user: User = new User();
+
+  constructor(public dialog: MatDialog) { 
+    
+  }
 
   ngOnInit(): void {
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddUserComponent, {
-      data: {name: this.name, animal: this.animal},
+      
     });
 
     dialogRef.afterClosed().subscribe(result => {

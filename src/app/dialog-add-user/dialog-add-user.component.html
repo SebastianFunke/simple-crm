@@ -5,19 +5,19 @@
     <div>
         <mat-form-field appearance="outline" class="mr-16">
             <mat-label>First Name</mat-label>
-            <input matInput placeholder="First Name">
+            <input [(ngModel)]="user.firstName" matInput placeholder="First Name">
 
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>Last Name</mat-label>
-            <input matInput placeholder="Last Name">
+            <input [(ngModel)]="user.lastName" matInput placeholder="Last Name">
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Birth Date</mat-label>
-            <input matInput placeholder="Day of Birth" [matDatepicker]="datepicker">
+            <input [(ngModel)]="birthDate" matInput placeholder="Day of Birth" [matDatepicker]="datepicker">
             <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
 
             <mat-datepicker #datepicker>
@@ -33,24 +33,24 @@
     <div>
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Street, Number</mat-label>
-            <input matInput placeholder="Street, Number">
+            <input [(ngModel)]="user.street" matInput placeholder="Street, Number">
         </mat-form-field>
     </div>
     <div>
 
         <mat-form-field appearance="outline" class="mr-16">
             <mat-label>Zip Code</mat-label>
-            <input matInput placeholder="Zip Code">
+            <input [(ngModel)]="user.zipCode" matInput placeholder="Zip Code">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>City</mat-label>
-            <input matInput placeholder="City">
+            <input [(ngModel)]="user.city" matInput placeholder="City">
         </mat-form-field>
     </div>
 </div>
 
 <div mat-dialog-actions>
     <button mat-button>Cancel</button>
-    <button mat-button cdkFocusInitial>Save</button>
+    <button mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
 </div>
