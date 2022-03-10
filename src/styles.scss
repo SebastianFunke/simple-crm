@@ -62,6 +62,7 @@ mat-toolbar-row {
 .router-container {
     padding-left: 56px;
     padding-top: 16px;
+    padding-right: 56px;
 }
 
 .mr-16 {
@@ -70,4 +71,8 @@ mat-toolbar-row {
 
 .full-width {
     width: 100%;
+}
+
+.mt-32 {
+    margin-top: 32px;
 }
