@@ -1,4 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { environment } from 'src/environments/environment';
 
 import { UserComponent } from './user.component';
 
@@ -8,7 +12,13 @@ describe('UserComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserComponent ]
+      declarations: [ UserComponent ],
+      imports: [ MatDialogModule, AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule],
+      providers: [
+        {provide: MatDialogRef,
+          useValue: {}}
+      ]
     })
     .compileComponents();
   });

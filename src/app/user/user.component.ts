@@ -17,24 +17,18 @@ export class UserComponent implements OnInit {
   user: User = new User();
   allUsers = [] as any[];
 
-
   constructor(public dialog: MatDialog, private firestore: AngularFirestore) {}
 
   ngOnInit(): void {
     this.firestore
       .collection('user')
-      .valueChanges({idField: 'userID'})
+      .valueChanges({ idField: 'userID' })
       .subscribe((changes: any) => {
-       
-        this.allUsers=changes;
-        console.log('valuchanges: ', this.allUsers);
+        this.allUsers = changes;
       });
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddUserComponent, {});
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed', result);
-    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 }

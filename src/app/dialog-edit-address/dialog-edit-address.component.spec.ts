@@ -4,15 +4,15 @@ import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/f
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { environment } from 'src/environments/environment';
 
-import { DialogAddUserComponent } from './dialog-add-user.component';
+import { DialogEditAddressComponent } from './dialog-edit-address.component';
 
-describe('DialogAddUserComponent', () => {
-  let component: DialogAddUserComponent;
-  let fixture: ComponentFixture<DialogAddUserComponent>;
+describe('DialogEditAddressComponent', () => {
+  let component: DialogEditAddressComponent;
+  let fixture: ComponentFixture<DialogEditAddressComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogAddUserComponent],
+      declarations: [ DialogEditAddressComponent ],
       imports: [ MatDialogModule, AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule],
       providers: [
@@ -24,7 +24,7 @@ describe('DialogAddUserComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DialogAddUserComponent);
+    fixture = TestBed.createComponent(DialogEditAddressComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

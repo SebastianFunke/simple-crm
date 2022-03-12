@@ -76,3 +76,15 @@ mat-toolbar-row {
 .mt-32 {
     margin-top: 32px;
 }
+
+mat-progress-bar {
+    position: absolute;
+    width: calc(100% + 48px);
+    left: -24px;
+    right: -24px;
+    top: -24px;
+}
+
+.dialog-container {
+    position: relative;
+}

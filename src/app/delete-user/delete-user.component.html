@@ -1,0 +1,25 @@
+<div class="dialog-container">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+    <h1 mat-dialog-title>Delete User</h1>
+    <mat-dialog-content>Pleade enter the First Name from the User to delete</mat-dialog-content>
+
+    <div mat-dialog-content>
+
+
+        <div>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>{{ user.firstName }}</mat-label>
+                <input [disabled]="loading" matInput placeholder="First Name" [(ngModel)]="inputName">
+            </mat-form-field>
+        </div>
+        <div>
+
+        </div>
+    </div>
+
+    <div mat-dialog-actions>
+        <button [disabled]="loading" (click)="dialogRef.close()" mat-button>Cancel</button>
+        <button [disabled]="loading" mat-button (click)="deleteUser()" cdkFocusInitial>Delete</button>
+    </div>
+</div>
