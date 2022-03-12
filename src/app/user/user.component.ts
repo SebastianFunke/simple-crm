@@ -27,6 +27,10 @@ export class UserComponent implements OnInit {
         this.allUsers = changes;
       });
   }
+
+  /**
+   * function to open the dialog to add new user
+   */
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddUserComponent, {});
     dialogRef.afterClosed().subscribe((result) => {});

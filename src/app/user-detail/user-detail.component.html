@@ -2,60 +2,39 @@
     <button [matMenuTriggerFor]="userMenu" mat-icon-button class="pin-right-upper-corner">
         <mat-icon>more_vert</mat-icon>
       </button>
-
     <mat-menu #userMenu="matMenu">
         <button mat-menu-item (click)="editUserDetail()">Edit</button>
         <button class="btn-delete" mat-menu-item (click)="deleteUser()">Delete</button>
     </mat-menu>
-
-
     <img *ngIf="gender" src="../../assets/imgs/user_details/male.png" alt="">
     <img *ngIf="!gender" src="../../assets/imgs/user_details/female.png" alt="">
-
     <div class="user-details">
         <h2> {{user.firstName}} {{user.lastName}}</h2> <br> {{user.email}} <br>
-
     </div>
 </mat-card>
 
 <mat-card class="user-detail-body mt-32">
-
     <button [matMenuTriggerFor]="addressMenu" mat-icon-button class="pin-right-upper-corner">
         <mat-icon>more_vert</mat-icon>
       </button>
-
     <mat-menu #addressMenu="matMenu">
         <button mat-menu-item (click)="editMenu()">Edit</button>
-
-
     </mat-menu>
-
     <mat-card-title>Address</mat-card-title>
-
-
     <mat-card-content>
         {{user.street}} <br> {{user.zipCode}} {{user.city}}
-
     </mat-card-content>
 </mat-card>
 
-
 <mat-card class="user-detail-body mt-32">
-
     <button [matMenuTriggerFor]="birthdateMenu" mat-icon-button class="pin-right-upper-corner">
         <mat-icon>more_vert</mat-icon>
       </button>
-
     <mat-menu #birthdateMenu="matMenu">
         <button mat-menu-item (click)="editBirthday()">Edit</button>
-
     </mat-menu>
-
     <mat-card-title>Birthday</mat-card-title>
-
-
     <mat-card-content>
         {{birthdate}} <br> {{ starsign }}
-
     </mat-card-content>
 </mat-card>

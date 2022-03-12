@@ -5,8 +5,6 @@
 
     <div mat-dialog-content>
 
-
-
         <div class="add-user-row">
             <mat-form-field appearance="outline" class="mr-16">
                 <mat-label>First Name</mat-label>
@@ -19,6 +17,7 @@
                 <input [disabled]="loading" [(ngModel)]="user.lastName" matInput placeholder="Last Name">
             </mat-form-field>
         </div>
+
         <div class="add-user-row">
             <mat-form-field appearance="outline">
                 <mat-label>Birth Date</mat-label>
@@ -31,8 +30,8 @@
                         <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
                     </mat-datepicker-actions>
                 </mat-datepicker>
-
             </mat-form-field>
+
             <mat-form-field appearance="fill">
                 <mat-label>Gender</mat-label>
                 <mat-select [disabled]="loading" [(ngModel)]="user.gender">
@@ -41,8 +40,8 @@
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-
         </div>
+
         <div>
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>E-Mail </mat-label>
@@ -56,8 +55,8 @@
                 <input [disabled]="loading" [(ngModel)]="user.street" matInput placeholder="Street, Number">
             </mat-form-field>
         </div>
-        <div class="add-user-row">
 
+        <div class="add-user-row">
             <mat-form-field appearance="outline" class="mr-16">
                 <mat-label>Zip Code</mat-label>
                 <input [disabled]="loading" [(ngModel)]="user.zipCode" matInput placeholder="Zip Code">
@@ -68,6 +67,7 @@
                 <input [disabled]="loading" [(ngModel)]="user.city" matInput placeholder="City">
             </mat-form-field>
         </div>
+
     </div>
 
     <div mat-dialog-actions>

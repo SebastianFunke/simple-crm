@@ -25,6 +25,10 @@ export class DeleteUserComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * function to delete a specific user
+   * delete only if the entered name equals to the first name otherwise call the snackbar function
+   */
   deleteUser() {
     if (this.inputName == this.user.firstName) {
       if (this.userID) {
@@ -45,8 +49,11 @@ export class DeleteUserComponent implements OnInit {
     }
   }
 
-
-  showSnackbar(message: any){
+  /**
+   * function call snackbar service for showing a message
+   * @param message string - message to show in snackbar
+   */
+  showSnackbar(message: any) {
     this.snackBarService.openSnackBar(message);
   }
 }

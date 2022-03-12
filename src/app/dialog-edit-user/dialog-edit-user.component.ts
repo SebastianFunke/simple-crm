@@ -22,22 +22,24 @@ export class DialogEditUserComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * function to save changes of user data
+   */
   saveUser() {
-    if(this.user.firstName && this.user.lastName && this.user.email){
-
-    if(this.userID){
-    this.loading=true
-    this.firestore
-      .collection('user')
-      .doc(this.userID)
-      .update(this.user.toJson())
-      .then((result:any) => {
-        this.loading=false;
-        this.dialogRef.close();
-      });
+    if (this.user.firstName && this.user.lastName && this.user.email) {
+      if (this.userID) {
+        this.loading = true;
+        this.firestore
+          .collection('user')
+          .doc(this.userID)
+          .update(this.user.toJson())
+          .then((result: any) => {
+            this.loading = false;
+            this.dialogRef.close();
+          });
+      }
+    } else {
+      this.snackBarService.openSnackBar('Please fill all Fields');
+    }
   }
-
-} else {
-  this.snackBarService.openSnackBar('Please fill all Fields');
 }
-}}

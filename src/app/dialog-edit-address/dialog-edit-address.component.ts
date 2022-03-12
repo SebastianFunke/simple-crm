@@ -22,9 +22,11 @@ export class DialogEditAddressComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * function to save changes in user object
+   */
   saveUser() {
-    if(this.user.street && this.user.zipCode && this.user.city){
-
+    if (this.user.street && this.user.zipCode && this.user.city) {
       if (this.userID) {
         this.loading = true;
         this.firestore
@@ -32,17 +34,12 @@ export class DialogEditAddressComponent implements OnInit {
           .doc(this.userID)
           .update(this.user.toJson())
           .then((result: any) => {
-          
             this.loading = false;
             this.dialogRef.close();
           });
+      }
+    } else {
+      this.snackBarService.openSnackBar('Please fill all Fields');
     }
-
-   
-    }
- else {
-
-  this.snackBarService.openSnackBar('Please fill all Fields');
-}
   }
 }

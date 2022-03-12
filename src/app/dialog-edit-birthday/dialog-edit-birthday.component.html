@@ -1,32 +1,21 @@
 <div class="dialog-container">
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
-
     <h1 mat-dialog-title>Edit Birthdate</h1>
 
     <div mat-dialog-content>
-
-
-
-
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Birth Date</mat-label>
                 <input required [disabled]="loading" [(ngModel)]="birthDate" matInput placeholder="Day of Birth" [matDatepicker]="datepicker">
                 <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-
                 <mat-datepicker #datepicker>
                     <mat-datepicker-actions>
                         <button mat-button matDatepickerCancel>Cancel</button>
                         <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
                     </mat-datepicker-actions>
                 </mat-datepicker>
-
             </mat-form-field>
-
-
         </div>
-
-
     </div>
 
     <div mat-dialog-actions>

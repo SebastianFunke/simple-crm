@@ -28,10 +28,12 @@ export class DialogAddUserComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * function to save the new user
+   */
   saveUser() {
     this.loading = true;
     this.user.birthDate = this.birthDate ? this.birthDate.getTime() : 0;
-
     this.firestore
       .collection('user')
       .add(this.user.toJson())

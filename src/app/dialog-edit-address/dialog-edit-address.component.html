@@ -1,10 +1,8 @@
 <div class="dialog-container">
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
-
     <h1 mat-dialog-title>Edit Address</h1>
 
     <div mat-dialog-content>
-
 
         <div>
             <mat-form-field appearance="outline" class="full-width">
@@ -12,8 +10,8 @@
                 <input [disabled]="loading" [(ngModel)]="user.street" matInput placeholder="Street, Number">
             </mat-form-field>
         </div>
-        <div>
 
+        <div>
             <mat-form-field appearance="outline" class="mr-16">
                 <mat-label>Zip Code</mat-label>
                 <input [disabled]="loading" [(ngModel)]="user.zipCode" matInput placeholder="Zip Code">
@@ -24,6 +22,7 @@
                 <input [disabled]="loading" [(ngModel)]="user.city" matInput placeholder="City">
             </mat-form-field>
         </div>
+
     </div>
 
     <div mat-dialog-actions>
