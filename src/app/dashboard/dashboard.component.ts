@@ -6,6 +6,7 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { DialogAddTaskComponent } from '../dialog-add-task/dialog-add-task.component';
+import { DialogDeleteTaskComponent } from '../dialog-delete-task/dialog-delete-task.component';
 import { SnackBarService } from '../snack-bar.service';
 
 @Component({
@@ -15,6 +16,7 @@ import { SnackBarService } from '../snack-bar.service';
 })
 export class DashboardComponent implements OnInit {
 allTasks = [] as any [];
+
   
   constructor(public dialog: MatDialog, private firestore: AngularFirestore, private snackBarService: SnackBarService) {}
 
@@ -25,25 +27,27 @@ allTasks = [] as any [];
     .valueChanges({ idField: 'taskID' })
     .subscribe((changes: any) => {
       this.allTasks = changes;
+
+      this.allTasks.forEach(element =>{
+        element.dueDate ='Due Date: ' + new Date(element.dueDate).getDate()+'.'+ (new Date(element.dueDate).getMonth()+1) +'.'+ new Date(element.dueDate).getFullYear();
+      })
+
+
     });
     
   }
 
   deleteTask(taskID: any){
-    console.log('delete Task: ', taskID);
 
-    if (taskID) {
-     
-      this.firestore
-        .collection('tasks')
-        .doc(taskID)
-        .delete()
-        .then((result: any) => {
-          this.snackBarService.openSnackBar('Task Deleted');
-        });
-    }
+    const dialog = this.dialog.open(DialogDeleteTaskComponent);
+    dialog.componentInstance.taskID = taskID;
+   
+
+
 
    }
+
+  
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddTaskComponent, {});
     dialogRef.afterClosed().subscribe((result) => {console.log('dashboard result: ',result)});

@@ -1,0 +1,17 @@
+<div class="dialog-container">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+    <h1 mat-dialog-title>Delete Task?</h1>
+
+    <div mat-dialog-content>
+
+
+
+
+    </div>
+
+    <div mat-dialog-actions>
+        <button [disabled]="loading" (click)="dialogRef.close()" mat-button>Cancel</button>
+        <button [disabled]="loading" color="warn" mat-button cdkFocusInitial (click)="deleteTask()">Delete</button>
+    </div>
+</div>

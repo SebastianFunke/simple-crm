@@ -36,6 +36,7 @@ import {MatSelectModule} from '@angular/material/select';
 
 import { DialogEditBirthdayComponent } from './dialog-edit-birthday/dialog-edit-birthday.component';
 import { DialogAddTaskComponent } from './dialog-add-task/dialog-add-task.component';
+import { DialogDeleteTaskComponent } from './dialog-delete-task/dialog-delete-task.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { DialogAddTaskComponent } from './dialog-add-task/dialog-add-task.compon
     DialogEditUserComponent,
     DialogEditBirthdayComponent,
     DialogAddTaskComponent,
+    DialogDeleteTaskComponent,
   ],
   imports: [
     BrowserModule,

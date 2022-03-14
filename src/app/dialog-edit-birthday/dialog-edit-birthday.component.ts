@@ -20,7 +20,9 @@ export class DialogEditBirthdayComponent implements OnInit {
     private snackBarService: SnackBarService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.birthDate = new Date(this.user.birthDate);
+  }
 
   /**
    * function to save changes of user data

@@ -26,12 +26,14 @@
                     </mat-datepicker-actions>
                 </mat-datepicker>
             </mat-form-field>
+        </div>
 
+        <div class="add-user-row">
             <mat-form-field appearance="fill">
                 <mat-label>User</mat-label>
                 <mat-select [disabled]="loading" [(ngModel)]="task.user">
-                    <mat-option *ngFor="let gender of genders" [value]="gender.value">
-                        {{gender.viewValue}}
+                    <mat-option *ngFor="let user of allUsersFire" [value]="user.firstName">
+                        {{user.firstName}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>

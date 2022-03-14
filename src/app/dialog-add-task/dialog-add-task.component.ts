@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Task } from 'src/models/task.class';
 
-interface Genders {
+interface Users {
   value: string;
   viewValue: string;
 }
@@ -16,9 +16,10 @@ interface Genders {
 export class DialogAddTaskComponent implements OnInit {
   loading = false;
   dueDate!: any;
-  genders: Genders[] = [
-    { value: 'male', viewValue: 'Male' },
-    { value: 'female', viewValue: 'Female' },
+  allUsersFire = [] as any[];
+  allUsers = [] as any[];
+  user: Users[] = [
+    { value: '', viewValue: '' },
   ];
   task = new Task();
 
@@ -26,6 +27,14 @@ export class DialogAddTaskComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogAddTaskComponent>) { }
 
   ngOnInit(): void {
+    this.firestore
+      .collection('user')
+      .valueChanges({ idField: 'userID' })
+      .subscribe((changes: any) => {
+        this.allUsersFire = changes;
+        console.log('add Task user fire: ', this.allUsersFire);
+      });
+
   }
 
   saveTask() {
