@@ -4,6 +4,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { User } from 'src/models/user.class';
 import { SnackBarService } from '../snack-bar.service';
 
+interface Genders {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-dialog-edit-user',
   templateUrl: './dialog-edit-user.component.html',
@@ -14,6 +19,11 @@ export class DialogEditUserComponent implements OnInit {
   birthDate!: Date;
   loading = false;
   userID!: string;
+  genders: Genders[] = [
+    { value: 'male', viewValue: 'Male' },
+    { value: 'female', viewValue: 'Female' },
+  ];
+
   constructor(
     private firestore: AngularFirestore,
     public dialogRef: MatDialogRef<DialogEditUserComponent>,

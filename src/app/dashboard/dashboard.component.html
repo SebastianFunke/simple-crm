@@ -1,3 +1,18 @@
-<button mat-fab color="primary" class="task-add-btn" matTooltip="Add Task" matTooltipHideDelay="1000">
+<button mat-fab color="primary" class="task-add-btn" matTooltip="Add Task" matTooltipHideDelay="1000" (click)="openDialog()">
     <mat-icon>add</mat-icon>
   </button>
+
+<mat-card *ngFor="let task of allTasks">
+
+    <h2>{{ task.header }}</h2> <br>
+    <h3> {{ task.dueDate }} </h3> <br>{{ task.description }} <br> {{ task.user }}
+
+    <div>
+        <button class="delete-btn" mat-fab color="warn" aria-label="delete task" (click)="deleteTask(task.taskID)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+
+
+
+</mat-card>

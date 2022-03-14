@@ -22,6 +22,16 @@
                 <input type="email" [disabled]="loading" [(ngModel)]="user.email" matInput placeholder="example@provider.de">
             </mat-form-field>
         </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Gender</mat-label>
+                <mat-select [disabled]="loading" [(ngModel)]="user.gender">
+                    <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                        {{gender.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
     </div>
 
     <div mat-dialog-actions>

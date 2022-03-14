@@ -1,0 +1,57 @@
+<div class="dialog-container">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+    <h1 mat-dialog-title>Add Task</h1>
+
+    <div mat-dialog-content>
+
+        <div class="add-user-row">
+            <mat-form-field appearance="outline" class="mr-16">
+                <mat-label>Header</mat-label>
+                <input [disabled]="loading" [(ngModel)]="task.header" matInput placeholder="header">
+
+            </mat-form-field>
+        </div>
+
+        <div class="add-user-row">
+            <mat-form-field appearance="outline">
+                <mat-label>Due Date</mat-label>
+                <input [disabled]="loading" [(ngModel)]="dueDate" matInput placeholder="Due Date" [matDatepicker]="datepicker">
+                <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+
+                <mat-datepicker #datepicker>
+                    <mat-datepicker-actions>
+                        <button mat-button matDatepickerCancel>Cancel</button>
+                        <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                    </mat-datepicker-actions>
+                </mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>User</mat-label>
+                <mat-select [disabled]="loading" [(ngModel)]="task.user">
+                    <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                        {{gender.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+
+
+        <div>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Description</mat-label>
+                <input [disabled]="loading" [(ngModel)]="task.description" matInput placeholder="description">
+            </mat-form-field>
+        </div>
+
+
+
+    </div>
+
+    <div mat-dialog-actions>
+        <button [disabled]="loading" (click)="dialogRef.close()" mat-button>Cancel</button>
+        <button [disabled]="loading" mat-button cdkFocusInitial (click)="saveTask()">Save</button>
+    </div>
+</div>

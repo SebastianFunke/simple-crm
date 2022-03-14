@@ -7,7 +7,7 @@ export class User {
   city!: string;
   email!: string;
   gender!: string;
-
+  
   constructor(obj?: any) {
     this.firstName = obj ? obj.firstName : '';
     this.lastName = obj ? obj.lastName : '';

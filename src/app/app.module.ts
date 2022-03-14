@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
+import {MatTabsModule} from '@angular/material/tabs';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
@@ -32,7 +33,10 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
 import { DeleteUserComponent } from './delete-user/delete-user.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSelectModule} from '@angular/material/select';
+
 import { DialogEditBirthdayComponent } from './dialog-edit-birthday/dialog-edit-birthday.component';
+import { DialogAddTaskComponent } from './dialog-add-task/dialog-add-task.component';
+
 
 @NgModule({
   declarations: [
@@ -45,10 +49,14 @@ import { DialogEditBirthdayComponent } from './dialog-edit-birthday/dialog-edit-
     DialogEditAddressComponent,
     DialogEditUserComponent,
     DialogEditBirthdayComponent,
+    DialogAddTaskComponent,
   ],
   imports: [
     BrowserModule,
+
     MatSelectModule,
+    MatTabsModule,
+
     MatSnackBarModule,
     AppRoutingModule,
     BrowserAnimationsModule,
