@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Task } from 'src/models/task.class';
+import { SnackBarService } from '../snack-bar.service';
 
 interface Users {
   value: string;
@@ -24,7 +25,7 @@ export class DialogAddTaskComponent implements OnInit {
   task = new Task();
 
   constructor(private firestore: AngularFirestore,
-    public dialogRef: MatDialogRef<DialogAddTaskComponent>) { }
+    public dialogRef: MatDialogRef<DialogAddTaskComponent>, private snackBarService: SnackBarService) { }
 
   ngOnInit(): void {
     this.firestore
@@ -38,6 +39,9 @@ export class DialogAddTaskComponent implements OnInit {
   }
 
   saveTask() {
+
+    if (this.task.header && this.dueDate && this.task.description){
+
     this.loading = true;
     this.task.dueDate = this.dueDate ? this.dueDate.getTime() : 0;
     this.firestore
@@ -48,6 +52,10 @@ export class DialogAddTaskComponent implements OnInit {
         console.log('saveTask: ', this.task.toJson());
         this.dialogRef.close();
       });
-  }
+  } else {
+    this.snackBarService.openSnackBar('Please fill all requiered Fields')
+} 
+
+}
 
 }

@@ -2,11 +2,11 @@
     <mat-icon>add</mat-icon>
   </button>
 
-<mat-card *ngFor="let task of allTasks">
+<mat-card *ngFor="let task of allTasks" class="task-card">
 
-    <h2>{{ task.header }}</h2> <br>
-    <h3> {{ task.dueDate }} </h3> <br>{{ task.description }} <br> {{ task.user }}
-
+    <h3> {{ task.header }} </h3> <br> {{ task.dueDate }}
+    <br> {{ task.user }}
+    <br> {{ task.description }}
     <div>
         <button class="delete-btn" mat-fab color="warn" aria-label="delete task" (click)="deleteTask(task.taskID)">
         <mat-icon>delete</mat-icon>

@@ -12,6 +12,18 @@
     }
 }
 
+@media(max-width:700px) {
+    .user-detail-header {
+        word-break: break-all;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .user-details {
+        margin-left: 0 !important;
+    }
+}
+
 .user-details {
     height: 100px;
     margin-left: 32px;

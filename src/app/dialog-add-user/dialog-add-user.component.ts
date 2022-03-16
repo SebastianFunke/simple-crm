@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { User } from 'src/models/user.class';
+import { SnackBarService } from '../snack-bar.service';
 interface Genders {
   value: string;
   viewValue: string;
@@ -23,7 +24,8 @@ export class DialogAddUserComponent implements OnInit {
 
   constructor(
     private firestore: AngularFirestore,
-    public dialogRef: MatDialogRef<DialogAddUserComponent>
+    public dialogRef: MatDialogRef<DialogAddUserComponent>,
+    private snackBarService: SnackBarService
   ) {}
 
   ngOnInit(): void {}
@@ -32,6 +34,11 @@ export class DialogAddUserComponent implements OnInit {
    * function to save the new user
    */
   saveUser() {
+
+  if(this.user.firstName && this.user.lastName && this.birthDate && this.user.gender && this.user.email && this.user.street && this.user.zipCode && this.user.city){
+
+
+
     this.loading = true;
     this.user.birthDate = this.birthDate ? this.birthDate.getTime() : 0;
     this.firestore
@@ -41,5 +48,8 @@ export class DialogAddUserComponent implements OnInit {
         this.loading = false;
         this.dialogRef.close();
       });
+  }else {
+  this.snackBarService.openSnackBar('Please Fill all requiered Fields');
   }
+} 
 }

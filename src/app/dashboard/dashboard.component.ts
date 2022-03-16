@@ -16,7 +16,7 @@ import { SnackBarService } from '../snack-bar.service';
 })
 export class DashboardComponent implements OnInit {
 allTasks = [] as any [];
-
+dueDate!: Date;
   
   constructor(public dialog: MatDialog, private firestore: AngularFirestore, private snackBarService: SnackBarService) {}
 
@@ -27,9 +27,9 @@ allTasks = [] as any [];
     .valueChanges({ idField: 'taskID' })
     .subscribe((changes: any) => {
       this.allTasks = changes;
-
       this.allTasks.forEach(element =>{
-        element.dueDate ='Due Date: ' + new Date(element.dueDate).getDate()+'.'+ (new Date(element.dueDate).getMonth()+1) +'.'+ new Date(element.dueDate).getFullYear();
+        this.dueDate = new Date(element.dueDate);
+        element.dueDate ='Due Date: ' + this.dueDate.getDate()+'.'+ (this.dueDate.getMonth()+1) +'.'+ this.dueDate.getFullYear();
       })
 
 

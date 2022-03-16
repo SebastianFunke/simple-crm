@@ -8,7 +8,7 @@
         <div class="add-user-row">
             <mat-form-field appearance="outline" class="mr-16">
                 <mat-label>Header</mat-label>
-                <input [disabled]="loading" [(ngModel)]="task.header" matInput placeholder="header">
+                <input required [disabled]="loading" [(ngModel)]="task.header" matInput placeholder="header">
 
             </mat-form-field>
         </div>
@@ -16,7 +16,7 @@
         <div class="add-user-row">
             <mat-form-field appearance="outline">
                 <mat-label>Due Date</mat-label>
-                <input [disabled]="loading" [(ngModel)]="dueDate" matInput placeholder="Due Date" [matDatepicker]="datepicker">
+                <input required [disabled]="loading" [(ngModel)]="dueDate" matInput placeholder="Due Date" [matDatepicker]="datepicker">
                 <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
 
                 <mat-datepicker #datepicker>
@@ -44,7 +44,7 @@
         <div>
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Description</mat-label>
-                <input [disabled]="loading" [(ngModel)]="task.description" matInput placeholder="description">
+                <input required [disabled]="loading" [(ngModel)]="task.description" matInput placeholder="description">
             </mat-form-field>
         </div>
 
