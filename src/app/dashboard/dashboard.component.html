@@ -8,7 +8,7 @@
     <br> {{ task.user }}
     <br> {{ task.description }}
     <div>
-        <button class="delete-btn" mat-fab color="warn" aria-label="delete task" (click)="deleteTask(task.taskID)">
+        <button class="delete-btn" mat-fab color="warn" aria-label="delete task" (click)="openDialogDelete(task.taskID)">
         <mat-icon>delete</mat-icon>
       </button>
     </div>

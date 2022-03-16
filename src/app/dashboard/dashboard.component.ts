@@ -31,26 +31,23 @@ dueDate!: Date;
         this.dueDate = new Date(element.dueDate);
         element.dueDate ='Due Date: ' + this.dueDate.getDate()+'.'+ (this.dueDate.getMonth()+1) +'.'+ this.dueDate.getFullYear();
       })
-
-
     });
-    
   }
 
-  deleteTask(taskID: any){
-
+  /**
+   * opens the dialog to delete a specific task
+   * @param taskID number - Id of the Task
+   */
+  openDialogDelete(taskID: any){
     const dialog = this.dialog.open(DialogDeleteTaskComponent);
     dialog.componentInstance.taskID = taskID;
-   
-
-
-
    }
 
-  
+   /**
+    * opens dialog to add new task
+    */
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddTaskComponent, {});
     dialogRef.afterClosed().subscribe((result) => {console.log('dashboard result: ',result)});
   }
-
 }
